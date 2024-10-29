@@ -27,13 +27,14 @@ int main()
               << "  Position: \n"
               << "    x: " << window.getPosition().x << "\n"
               << "    y: " << window.getPosition().y << "\n"
-              << "  Window Size: " << "\n"
+              << "  Size: " << "\n"
               << "    width: " << window.getSize().x << "px" << "\n"
               << "    height: " << window.getSize().y << "px" << "\n"
               << std::endl;
 
     // Indicates program startup
-    std::cout << "Launching window..." << std::endl;
+    std::cout
+        << "Launching window..." << std::endl;
 
     // Starts the program loop
     while (window.isOpen())
@@ -44,11 +45,56 @@ int main()
         {
             switch (event.type)
             {
-            // Closes the window upon pressing the close button
+            // Closes the program
             case sf::Event::Closed:
                 window.close();
                 std::cout << "...Window closed" << std::endl;
                 exit(EXIT_SUCCESS);
+                break;
+
+            // Handles mouse button clicks
+            case sf::Event::MouseButtonPressed:
+                std::cout << "MouseClick: ";
+                switch (event.mouseButton.button)
+                {
+                case sf::Mouse::Button::Left:
+                    std::cout << "LMB\n";
+                    break;
+                case sf::Mouse::Button::Right:
+                    std::cout << "RMB\n";
+                    break;
+                case sf::Mouse::Button::Middle:
+                    std::cout << "MMB\n";
+                    break;
+
+                default:
+                    std::cout << "?\n";
+                    break;
+                }
+                break;
+
+            // Handles user keypresses
+            case sf::Event::KeyPressed:
+                std::cout << "KeyPress: ";
+                switch (event.key.code)
+                {
+                case sf::Keyboard::W:
+                    std::cout << "W\n";
+                    break;
+                case sf::Keyboard::A:
+                    std::cout << "A\n";
+                    break;
+                case sf::Keyboard::S:
+                    std::cout << "S\n";
+                    break;
+                case sf::Keyboard::D:
+                    std::cout << "D\n";
+                    break;
+
+                default:
+                    std::cout << "?\n";
+                    break;
+                }
                 break;
 
             default:
