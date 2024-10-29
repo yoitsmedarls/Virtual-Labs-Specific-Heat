@@ -1,23 +1,34 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+
+#define INIT_WINDOW_WIDTH 1280
+#define INIT_WINDOW_HEIGHT 720
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
-    sf::CircleShape shape(100);
-    shape.setFillColor(sf::Color::Green);
+    sf::Window window;
+    window.create(sf::VideoMode(INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT), "Virtual Labs: Specific Heat");
+    window.setPosition(sf::Vector2i(
+        (sf::VideoMode::getDesktopMode().width - window.getSize().x) / 2,
+        (sf::VideoMode::getDesktopMode().height - window.getSize().y) / 2));
 
     while (window.isOpen())
     {
         sf::Event event;
+
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            switch (event.type)
+            {
+            case sf::Event::Closed:
                 window.close();
-        }
+                break;
 
-        window.clear();
-        window.draw(shape);
-        window.display();
+            default:
+                break;
+            }
+        }
     }
 
     return 0;
