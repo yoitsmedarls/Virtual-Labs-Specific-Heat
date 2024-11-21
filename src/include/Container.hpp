@@ -7,21 +7,20 @@
 
 class Container
 {
-protected:
+protected: // Class fields
     double m_diameter;
     double m_height;
     double m_volume;
     double m_topSurfaceArea;
-    Liquid m_contained_liquid;
-    Metal m_contained_metal;
+    Liquid m_containedLiquid;
+    Metal m_containedMetal;
 
 public: // Special methods
     /// @brief Default constructor
     Container();
 
     /// @brief Constructor with arguments for the class fields
-    Container(double diameter, double height, double volume, double topSurfaceArea,
-              Liquid contained_liquid, Metal contained_metal);
+    Container(double diameter, double height, Liquid &containedLiquid, Metal &containedMetal);
 
     /// @brief Copy constructor
     /// @param copy
@@ -37,15 +36,20 @@ public: // Operator overloads
     Container &operator=(const Container &copy);
 
 public: // Getters and Setters
-    double getMass();
-    double getTemperature();
-    double getSpecificHeatCapacity();
+    double getDiameter();
+    double getHeight();
+    double getVolume();
+    double getTopSurfaceArea();
+    Liquid getContainedLiquid();
+    Metal getContainedMetal();
 
-    void setMass(double mass);
-    void setTemperature(double temperature);
-    void setSpecificHeatCapacity(double specificHeatCapacity);
+    void setDiameter();
+    void setHeight();
+    void setContainedLiquid();
+    void setContainedMetal();
 
 public: // Other methods
+    void updateVolumeAndTopSurfaceArea();
 };
 
 #endif

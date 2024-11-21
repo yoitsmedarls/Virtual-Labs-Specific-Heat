@@ -1,6 +1,10 @@
 #ifndef SUBSTANCE
 #define SUBSTANCE
 
+/** @author @yoitsmedarls
+ * @brief The base class for all objects designed to be 'placed' or 'put inside'
+ * objects from (or derived from) the Container class.
+ */
 class Substance
 {
 protected: // Class fields

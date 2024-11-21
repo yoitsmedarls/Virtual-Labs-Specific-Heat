@@ -3,9 +3,13 @@
 
 #include "Substance.hpp"
 
+/** @author @yoitsmedarls
+ * @brief A child of the Substance class that defines the liquids that will be placed
+ * inside of containers (i.e. water).
+ */
 class Liquid : public Substance
 {
-protected: // Class fields
+private: // Class fields
     double m_density;
     double m_volume;
     double m_boilingPoint;
@@ -30,7 +34,7 @@ public: // Operator overloads
     /// @brief Copy assignment operator
     /// @param copy
     /// @return
-    Liquid &operator=(const Liquid &copy);
+    inline Liquid &operator=(const Liquid &);
 
 public: // Getters and Setters
     double getDensity();

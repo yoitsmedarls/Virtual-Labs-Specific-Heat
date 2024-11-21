@@ -5,7 +5,7 @@
 
 class Metal : public Substance
 {
-protected: // Class fields
+private: // Class fields
     double m_length;
     double m_width;
     double m_height;
