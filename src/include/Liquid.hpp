@@ -17,7 +17,7 @@ public: // Special methods
 
     /// @brief Constructor with arguments for the class fields
     Liquid(double mass, double temperature, double specificHeatCapacity,
-           double density, double volume, double boilingPoint, double freezingPoint);
+           double density, double boilingPoint, double freezingPoint);
 
     /// @brief Copy constructor
     /// @param copy
@@ -39,11 +39,11 @@ public: // Getters and Setters
     double getFreezingPoint();
 
     void setDensity(double density);
-    void setVolume(double volume);
     void setBoilingPoint(double boilingPoint);
     void setFreezingPoint(double freezingPoint);
 
 public: // Other methods
+    void updateLiquidVolume();
 };
 
 #endif

@@ -10,7 +10,7 @@ Liquid::Liquid()
 }
 
 Liquid::Liquid(double mass, double temperature, double specificHeatCapacity,
-               double density, double volume, double boilingPoint, double freezingPoint)
+               double density, double boilingPoint, double freezingPoint)
     : Substance(mass, temperature, specificHeatCapacity)
 {
     std::cout << "Liquid | Constructor called..." << std::endl;
@@ -70,11 +70,9 @@ double Liquid::getFreezingPoint()
 void Liquid::setDensity(double density)
 {
     m_density = density;
+    updateLiquidVolume();
 }
-void Liquid::setVolume(double volume)
-{
-    m_volume = volume;
-}
+
 void Liquid::setBoilingPoint(double boilingPoint)
 {
     m_boilingPoint = boilingPoint;
@@ -82,4 +80,11 @@ void Liquid::setBoilingPoint(double boilingPoint)
 void Liquid::setFreezingPoint(double freezingPoint)
 {
     m_freezingPoint = freezingPoint;
+}
+
+/* Other methods */
+
+void Liquid::updateLiquidVolume()
+{
+    m_volume = m_mass / m_density;
 }

@@ -9,6 +9,7 @@ protected: // Class fields
     double m_length;
     double m_width;
     double m_height;
+    double m_volume;
 
 public: // Special methods
     /// @brief Default constructor
@@ -35,12 +36,14 @@ public: // Getters and Setters
     double getLength();
     double getWidth();
     double getHeight();
+    double getVolume();
 
     void setLength(double length);
     void setWidth(double width);
     void setHeight(double height);
 
 public: // Other methods
+    void updateMetalVolume();
 };
 
 #endif
