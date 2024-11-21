@@ -10,10 +10,10 @@ clean:
 	rm *.o
 
 move:
-	mv main bin/main
+	rm -r bin/ && mkdir -p bin/ && mv main bin/
 
 copy:
-	cp -r assets/ bin/
+	mkdir -p assets/ && cp -r assets/ bin/
 
 run:
 	./bin/main
